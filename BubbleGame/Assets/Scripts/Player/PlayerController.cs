@@ -39,14 +39,16 @@ public class PlayerController : MonoBehaviour
 
         prevPlayerPos = transform.position;
     }
-
+    #endregion
     private void Update()
     {
         CheckDied();
     }
-
-    #endregion
-
+    private void FixedUpdate()
+    {
+        AddGravityPower();
+        CheckGroundByRay();
+    }
     #region アニメーション用メソッド
     public void SetMoveAnimation()
     {
@@ -69,7 +71,7 @@ public class PlayerController : MonoBehaviour
     {
         //最新の位置-入力前の位置=方向
         Vector3 direction = transform.position - prevPlayerPos;
-
+        direction = direction - new Vector3(0, direction.y, 0);
         if (direction.magnitude > 0)
         {
             //RotateCharaterByOneAxis 左スティックだけ採用するときはこちらを使う
@@ -133,7 +135,7 @@ public class PlayerController : MonoBehaviour
     #region 被ダメージ
     public void Damgae()
     {
-        if (isVincible|| status.nowHp <= 0)
+        if (isVincible || status.nowHp <= 0)
             return;
         if (status.nowHp > 0)
             status.nowHp--;
@@ -163,12 +165,34 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        Vector3 jumpVelocity = transform.up * Time.fixedDeltaTime * 60 * status.JumpPower ;
-        rb.velocity = jumpVelocity;
+        if (isGround)
+        {
+            Vector3 jumpVelocity = transform.up * Time.fixedDeltaTime * 60 * status.JumpPower;
+            rb.velocity = jumpVelocity;
+            isGround = false;
+        }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void CheckGroundByRay()
     {
-        //if(other.transform.gameObject.layer==15)
+        RaycastHit hit;
+        Vector3 downDirection = (transform.up * -1);
+        float distanceToGround = 0.02f;
+        if (Physics.Raycast(transform.position, downDirection, out hit, distanceToGround))
+        {
+            Debug.Log("isGround" + isGround);
+            //Debug.Log("hit.distance" + hit.distance);
+            //Debug.Log("hit.transform.name" + hit.transform.name);
+            if (!isGround)
+            {
+                if (hit.transform.gameObject.layer == 9/*Ground*/)
+                isGround = true;
+            }
+        }
+        Debug.DrawRay(transform.position, downDirection, Color.red);
+    }
+    private void AddGravityPower()
+    {
+        rb.velocity += Physics.gravity * status.GravityFactor;
     }
 }

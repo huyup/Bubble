@@ -139,4 +139,18 @@ public class PlayerStatus : MonoBehaviour
             jumpPower = value;
         }
     }
+
+    /// <summary>
+    /// 重力Factor
+    /// </summary>
+    [SerializeField]
+    float gravityFactor = 0.3f;
+    public float GravityFactor
+    {
+        get { return gravityFactor; }
+        private set
+        {
+            gravityFactor = value;
+        }
+    }
 }

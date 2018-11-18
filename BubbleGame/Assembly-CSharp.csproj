@@ -193,16 +193,16 @@
     <None Include="Assets\Asset Store\Standard Assets\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
     <None Include="Assets\Asset Store\Standard Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/daiyi/Desktop/BubbleGame/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/daiyi/Desktop/Bubble/Bubble/BubbleGame/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/daiyi/Desktop/BubbleGame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/daiyi/Desktop/Bubble/Bubble/BubbleGame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/daiyi/Desktop/BubbleGame/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/daiyi/Desktop/Bubble/Bubble/BubbleGame/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/daiyi/Desktop/BubbleGame/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/daiyi/Desktop/Bubble/Bubble/BubbleGame/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

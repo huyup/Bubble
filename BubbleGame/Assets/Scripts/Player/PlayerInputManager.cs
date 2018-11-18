@@ -83,12 +83,10 @@ public class PlayerInputManager : MonoBehaviour
             attackButtonState = AttackButtonState.ButtonUp;
             bubbleShooting.SetAttackAnimation(attackButtonState);
         }
-
-        if (GamePad.GetButtonDown(GamePad.Button.X, (GamePad.Index)playerNum))
+        if (GamePad.GetButtonUp(GamePad.Button.A, (GamePad.Index)playerNum))
         {
             playerController.Jump();
         }
-        Debug.Log("isOverMoveableSize" + isOverMoveableSize);
     }
 
     private void FixedUpdate()
